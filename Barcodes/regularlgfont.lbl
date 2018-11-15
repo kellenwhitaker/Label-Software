@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<root>
+  <description>Regular (large font)</description>
+  <dimensions width="6" height="4" />
+  <margins top="10" right="435" />
+  <font alias="base" family="Arial" size="20" />
+  <font alias="desc" family="Arial" size="44" />
+  <font alias="price" family="Arial" size="52" />
+  <font alias="store" family="Arial" size="24" />
+  <text param="store" font="store" xpos="10" ypos="4" />
+  <text param="stock" font="base" inverted="true" xpos="315" ypos="180" />
+  <text param="datecode" font="base" xpos="325" ypos="4" />
+  <barcode param="stock" symbology="Code128" size="36" xpos="320" ypos="215" />
+  <text param="lineinput" font="desc" xpos="10" ypos="44" />
+  <text param="lineinput" font="desc" xpos="10" ypos="105" />    
+  <text param="price" font="price" xpos="10" ypos="172" />
+  </root>

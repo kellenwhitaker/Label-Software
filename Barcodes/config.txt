@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<root>
+<dbfolder>e:\paradox2\pawn</dbfolder>
+<labelfolder>C:\labels</labelfolder>
+<dataprovider2>Microsoft.ACE.OLEDB.12.0</dataprovider2>
+<dataprovider>Microsoft.Jet.OLEDB.4.0</dataprovider>
+<printername>ZD</printername>
+</root>

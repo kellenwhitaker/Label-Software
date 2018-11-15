@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<root>
+  <description>Blank</description>
+  <dimensions width="6" height="4" />
+  <margins top="10" right="445" />
+  <font alias="base" family="Arial" size="10" />
+  <text param="lineinput" inverted="true" font="base" align="fill" xpos="222" ypos="130" />
+  </root>
