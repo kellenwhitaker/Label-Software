@@ -342,16 +342,15 @@ namespace Labels
         public class Coordinate
         {
             private int _value = -1;
-            private bool _relative = false;
 
             public int Value { get => _value; set => _value = value; }
-            public bool Relative { get => _relative; set => _relative = value; }
+            public bool Relative { get; set; } = false;
 
             public Coordinate(string value)
             {
                 if (Int32.TryParse(value, out _value))
                     if (value.Contains("+") || value.Contains("-"))
-                        _relative = true;
+                        Relative = true;
             }
         }
     }

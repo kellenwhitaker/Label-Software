@@ -1,63 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <root>
   <description>Ultra Small</description>
-  <linelength>15</linelength>
-  <topmargin>10</topmargin>
-  <basefont>
-    <fontname>Arial</fontname>
-    <fontsize>10</fontsize>
-    </basefont>
-  <pricefont>
-    <fontname>Arial</fontname>
-    <fontsize>12</fontsize>
-    </pricefont>
-  <stocknumber>
-    <inverted>true</inverted>
-    <xpos>6</xpos>      
-    <ypos>54</ypos>
-    </stocknumber>
-  <stockbarcode>
-    <symbology>Code128</symbology>
-    <size>24</size>
-    <xpos>10</xpos>
-    <ypos>32</ypos>
-    </stockbarcode>
-  <line1>
-    <xpos>65</xpos>
-    <ypos>54</ypos>
-    </line1>
-  <price>
-    <xpos>135</xpos>
-    <ypos>32</ypos>
-    </price>
+  <dimensions width="6" height="4" />
+  <margins top="10" right="200" />
+  <font alias="base" family ="Arial" size="11" />
+  <font alias="price" family="Arial" size="14" />
+  <text param="stock" inverted="true" xpos="6" ypos="54" id="stock" />
+  <barcode param="stock" symbology="Code128" size="24" xpos="10" ypos="32" />
+  <text param="lineinput" xpos="+5" ypos="54" anchor="stock" />
+  <text param="price" font="price" xpos="205" ypos="28" align="right" />
   <cutline>
-    <p1>
-    <xpos>0</xpos>
-    <ypos>25</ypos>
-      </p1>
-    <p2>
-    <xpos>460</xpos>
-    <ypos>25</ypos>
-      </p2>
+    <point xpos="0" ypos="25" />
+    <point xpos="460" ypos="25" />
     </cutline>
   <cutline>
-    <p1>
-      <xpos>0</xpos>
-      <ypos>75</ypos>
-    </p1>
-    <p2>
-      <xpos>460</xpos>
-      <ypos>75</ypos>
-    </p2>
+    <point xpos="0" ypos="75" />
+    <point xpos="460" ypos="75" />
   </cutline>
   <cutline>
-    <p1>
-      <xpos>195</xpos>
-      <ypos>75</ypos>
-    </p1>
-    <p2>
-      <xpos>195</xpos>
-      <ypos>25</ypos>
-    </p2>
+    <point xpos="215" ypos="75" />
+    <point xpos="215" ypos="25" />
   </cutline>
   </root>

@@ -14,7 +14,7 @@ using System.Linq;
 using System.Media;
 using Labels;
 
-namespace PMDataPuller
+namespace Barcodes
 {
     public partial class Form1 : Form
     {
@@ -36,6 +36,24 @@ namespace PMDataPuller
             splashForm.Show();
             fonts.AddFontFile("free3of9.ttf");
             XElement configRoot = XElement.Load("config.txt");
+            LoadLabelTemplates(configRoot);
+            LoadConfigFields(configRoot);
+            bwTestConn.RunWorkerAsync();
+        }
+
+        private void LoadConfigFields(XElement configRoot)
+        {
+            DataSource = configRoot.Element("dbfolder").Value;
+            labelPrinter = configRoot.Element("printername").Value;
+            DataProvider = configRoot.Element("dataprovider").Value;
+            if (configRoot.Element("printspeed") != null)
+                printSpeed = Convert.ToInt32(configRoot.Element("printspeed").Value);
+            if (configRoot.Element("printdarkness") != null)
+                printDarkness = Convert.ToInt32(configRoot.Element("printdarkness").Value);
+        }
+
+        private void LoadLabelTemplates(XElement configRoot)
+        {
             DirectoryInfo di;
             if (configRoot.Element("labelfolder") != null)
                 di = new DirectoryInfo(configRoot.Element("labelfolder").Value);
@@ -44,18 +62,9 @@ namespace PMDataPuller
             FileInfo[] fi = di.GetFiles("*.lbl");
             foreach (FileInfo f in fi)
             {
-                XElement labelTemplate = XElement.Load(f.Name);
+                XElement labelTemplate = XElement.Load(f.FullName);
                 labelComboBox.Items.Add(new LabelTemplate(labelTemplate));
             }
-
-            DataSource = configRoot.Element("dbfolder").Value;
-            labelPrinter = configRoot.Element("printername").Value;
-            DataProvider = configRoot.Element("dataprovider").Value;
-            if (configRoot.Element("printspeed") != null)
-                printSpeed = Convert.ToInt32(configRoot.Element("printspeed").Value);
-            if (configRoot.Element("printdarkness") != null)
-                printDarkness = Convert.ToInt32(configRoot.Element("printdarkness").Value);
-            bwTestConn.RunWorkerAsync();
         }
 
         private void Form1_Shown(object sender, EventArgs e)

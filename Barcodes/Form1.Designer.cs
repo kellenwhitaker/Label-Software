@@ -1,4 +1,4 @@
-﻿namespace PMDataPuller
+﻿namespace Barcodes
 {
     partial class Form1
     {
