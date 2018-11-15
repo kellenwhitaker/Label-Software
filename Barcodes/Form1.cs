@@ -73,7 +73,7 @@ namespace Barcodes
                 labelComboBox.SelectedIndex = 0;            
         }
 
-        private void doSearch()
+        private void DoSearch()
         {
             try
             {
@@ -122,7 +122,7 @@ namespace Barcodes
             noResultsLabel.Visible = false;
             if (e.KeyChar == '\r')
             {
-                doSearch();
+                DoSearch();
                 e.Handled = true;
             }
         }
@@ -132,10 +132,7 @@ namespace Barcodes
             try
             {
                 stockGridView.Rows.Clear();
-                OleDbConnection conn = new OleDbConnection
-                {
-                    ConnectionString = String.Format("Provider={0};Data Source={1}\\pawndata;Extended Properties=Paradox 4.x;", DataProvider, DataSource)
-                };
+                OleDbConnection conn = new OleDbConnection { ConnectionString = String.Format("Provider={0};Data Source={1}\\pawndata;Extended Properties=Paradox 4.x;", DataProvider, DataSource) };
                 conn.Open();
                 OleDbCommand getStock = new OleDbCommand("SELECT [Stock #], Description, Price, Cost, Added FROM STOCK WHERE [Added]=:value1", conn);
                 getStock.Parameters.Add("value1", OleDbType.Date);
@@ -150,10 +147,7 @@ namespace Barcodes
                         stockGridView.Rows.Add(myreader[0], myreader[1], myreader[2], myreader[3], myreader[4]);
                     }
                 }
-                if (results == 0)
-                    noResultsLabel.Visible = true;
-                else
-                    noResultsLabel.Visible = false;
+                noResultsLabel.Visible = results == 0;
             }
             catch (Exception ex)
             {
@@ -758,7 +752,7 @@ namespace Barcodes
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void printButton_Click(object sender, EventArgs e)
         {
             Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             var labelTemplate = (from LabelTemplate x in labelComboBox.Items

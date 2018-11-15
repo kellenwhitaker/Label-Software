@@ -266,7 +266,7 @@
             this.printButton.TabIndex = 9;
             this.printButton.Text = "Print";
             this.printButton.UseVisualStyleBackColor = true;
-            this.printButton.Click += new System.EventHandler(this.button1_Click);
+            this.printButton.Click += new System.EventHandler(this.printButton_Click);
             // 
             // coordinatesLabel
             // 
