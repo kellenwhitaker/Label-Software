@@ -1,4 +1,4 @@
-﻿namespace Barcodes
+﻿namespace Labels
 {
     partial class Form1
     {
@@ -28,17 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataSet1 = new System.Data.DataSet();
-            this.bwMonthlyTotals = new System.ComponentModel.BackgroundWorker();
-            this.bwFreeInterest = new System.ComponentModel.BackgroundWorker();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.StatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.sortMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.sortByMonthThenYearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockGridView = new System.Windows.Forms.DataGridView();
             this.StockNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,18 +57,12 @@
             this.bwTestConn = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            this.sortMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stockGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.copiesUpDown)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "NewDataSet";
             // 
             // statusStrip1
             // 
@@ -90,19 +78,6 @@
             // 
             this.StatusLabel1.Name = "StatusLabel1";
             this.StatusLabel1.Size = new System.Drawing.Size(0, 17);
-            // 
-            // sortMenuStrip
-            // 
-            this.sortMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sortByMonthThenYearToolStripMenuItem});
-            this.sortMenuStrip.Name = "sortMenuStrip";
-            this.sortMenuStrip.Size = new System.Drawing.Size(206, 26);
-            // 
-            // sortByMonthThenYearToolStripMenuItem
-            // 
-            this.sortByMonthThenYearToolStripMenuItem.Name = "sortByMonthThenYearToolStripMenuItem";
-            this.sortByMonthThenYearToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-            this.sortByMonthThenYearToolStripMenuItem.Text = "Sort by month, then year";
             // 
             // stockGridView
             // 
@@ -143,9 +118,9 @@
             // Price
             // 
             this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N2";
-            this.Price.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "N2";
+            this.Price.DefaultCellStyle = dataGridViewCellStyle13;
             this.Price.HeaderText = "Price";
             this.Price.Name = "Price";
             this.Price.Width = 56;
@@ -153,9 +128,9 @@
             // Cost
             // 
             this.Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.Cost.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "N2";
+            this.Cost.DefaultCellStyle = dataGridViewCellStyle14;
             this.Cost.HeaderText = "Cost";
             this.Cost.Name = "Cost";
             this.Cost.Width = 53;
@@ -163,9 +138,9 @@
             // Added
             // 
             this.Added.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Added.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Format = "d";
+            dataGridViewCellStyle15.NullValue = null;
+            this.Added.DefaultCellStyle = dataGridViewCellStyle15;
             this.Added.HeaderText = "Added";
             this.Added.Name = "Added";
             this.Added.Width = 63;
@@ -377,10 +352,8 @@
             this.Text = "Labels";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Shown += new System.EventHandler(this.Form1_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.sortMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.stockGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.copiesUpDown)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -391,13 +364,8 @@
         }
 
         #endregion
-        private System.Data.DataSet dataSet1;
-        private System.ComponentModel.BackgroundWorker bwMonthlyTotals;
-        private System.ComponentModel.BackgroundWorker bwFreeInterest;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel StatusLabel1;
-        private System.Windows.Forms.ContextMenuStrip sortMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem sortByMonthThenYearToolStripMenuItem;
         private System.Windows.Forms.DataGridView stockGridView;
         private System.Windows.Forms.TextBox stockTextBox;
         private System.Windows.Forms.Label label1;

@@ -12,9 +12,8 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 using System.Linq;
 using System.Media;
-using Labels;
 
-namespace Barcodes
+namespace Labels
 {
     public partial class Form1 : Form
     {
@@ -585,7 +584,7 @@ namespace Barcodes
             UpdatePictureBox();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void printButton_Click(object sender, EventArgs e)
         {
             PrinterSettings ps = new PrinterSettings { PrinterName = labelPrinter };
             LabelTemplate labelTemplate = labelComboBox.SelectedItem as LabelTemplate;
@@ -724,58 +723,6 @@ namespace Barcodes
         private void bwTestConn_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             splashForm.Close();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            var labelTemplate = (from LabelTemplate x in labelComboBox.Items
-                                where x.Description == "Blank"
-                                select x).FirstOrDefault();
-            if (labelTemplate != null)
-            {
-                DrawLabel(labelTemplate, bmp, true, "▪▪▪►");
-                PrinterSettings ps = new PrinterSettings { PrinterName = labelPrinter };
-                double labelWidth = labelTemplate.StockWidth;
-                double labelHeight = labelTemplate.StockHeight;
-                ps.Width = (int)(203 * labelHeight);
-                ps.Length = (int)(203 * labelWidth);
-                ps.Darkness = printDarkness;
-                ps.PrintSpeed = printSpeed;
-
-                List<byte> page = new List<byte>();
-                page.AddRange(ZPLCommands.ClearPrinter(ps));
-                page.AddRange(ZPLCommands.GraphicStore(bmp, 'R', "img"));
-                page.AddRange(ZPLCommands.GraphicWrite(0, 0, "img", 'R'));
-                page.AddRange(ZPLCommands.PrintBuffer((int)copiesUpDown.Value));
-                new SpoolPrinter(ps).Print(page.ToArray());
-            }
-        }
-
-        private void printButton_Click(object sender, EventArgs e)
-        {
-            Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            var labelTemplate = (from LabelTemplate x in labelComboBox.Items
-                                 where x.Description == "Blank"
-                                 select x).FirstOrDefault();
-            if (labelTemplate != null)
-            {
-                DrawLabel(labelTemplate, bmp, true, "▲▲▲");
-                PrinterSettings ps = new PrinterSettings { PrinterName = labelPrinter };
-                double labelWidth = labelTemplate.StockWidth;
-                double labelHeight = labelTemplate.StockHeight;
-                ps.Width = (int)(203 * labelHeight);
-                ps.Length = (int)(203 * labelWidth);
-                ps.Darkness = printDarkness;
-                ps.PrintSpeed = printSpeed;
-
-                List<byte> page = new List<byte>();
-                page.AddRange(ZPLCommands.ClearPrinter(ps));
-                page.AddRange(ZPLCommands.GraphicStore(bmp, 'R', "img"));
-                page.AddRange(ZPLCommands.GraphicWrite(0, 0, "img", 'R'));
-                page.AddRange(ZPLCommands.PrintBuffer((int)copiesUpDown.Value));
-                new SpoolPrinter(ps).Print(page.ToArray());
-            }
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Barcodes
+namespace Labels
 {
     static class Program
     {
