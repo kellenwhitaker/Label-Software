@@ -69,6 +69,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LabelParameters.cs" />
+    <Compile Include="LabelRenderer.cs" />
     <Compile Include="LabelTemplate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
